@@ -4,7 +4,7 @@ include ../config.mk
 ifeq ($(MALI_EGL_TYPE),x11)
 	EGLPLATFORM_H = EGL/eglplatform.h
 else
-	EGLPLATFORM_H = EGL/eglplatform_fb.h
+	EGLPLATFORM_H = EGL/eglplatform.h
 endif
 
 all:
@@ -17,7 +17,7 @@ install_eglplatform: $(EGLPLATFORM_H)
 	$(MKDIR) $(includedir)/EGL
 	$(INSTALL_DATA) $^ $(includedir)/EGL/eglplatform.h
 
-install_eglheaders: EGL/egl.h EGL/eglext.h
+install_eglheaders: EGL/egl.h EGL/eglext.h EGL/fbdev_window.h
 	$(MKDIR) $(includedir)/EGL
 	$(INSTALL_DATA) $^ $(includedir)/EGL
 
